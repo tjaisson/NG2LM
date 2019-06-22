@@ -55,13 +55,16 @@
             // 
             // Fen
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(613, 395);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.Memo);
             this.Name = "Fen";
-            this.Text = "Publi4Par";
+            this.Text = "  ";
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.Fen_DragDrop);
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.Fen_DragEnter);
             this.ResumeLayout(false);
             this.PerformLayout();
 
