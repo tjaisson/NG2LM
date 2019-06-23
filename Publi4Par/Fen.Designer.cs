@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             this.Memo = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.SaveLNK = new System.Windows.Forms.LinkLabel();
+            this.saveDlg = new System.Windows.Forms.SaveFileDialog();
             this.SuspendLayout();
             // 
             // Memo
@@ -41,29 +42,30 @@
             this.Memo.Multiline = true;
             this.Memo.Name = "Memo";
             this.Memo.ReadOnly = true;
-            this.Memo.Size = new System.Drawing.Size(589, 342);
+            this.Memo.Size = new System.Drawing.Size(477, 337);
             this.Memo.TabIndex = 0;
             // 
-            // button1
+            // SaveLNK
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button1.Location = new System.Drawing.Point(12, 360);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.SaveLNK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.SaveLNK.AutoSize = true;
+            this.SaveLNK.Location = new System.Drawing.Point(12, 352);
+            this.SaveLNK.Name = "SaveLNK";
+            this.SaveLNK.Size = new System.Drawing.Size(111, 13);
+            this.SaveLNK.TabIndex = 2;
+            this.SaveLNK.TabStop = true;
+            this.SaveLNK.Text = "Générer le fichier CSV";
             // 
             // Fen
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(613, 395);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(501, 374);
+            this.Controls.Add(this.SaveLNK);
             this.Controls.Add(this.Memo);
             this.Name = "Fen";
-            this.Text = "  ";
+            this.Text = "Publi4Par";
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.Fen_DragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.Fen_DragEnter);
             this.ResumeLayout(false);
@@ -74,7 +76,8 @@
         #endregion
 
         private System.Windows.Forms.TextBox Memo;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.LinkLabel SaveLNK;
+        private System.Windows.Forms.SaveFileDialog saveDlg;
     }
 }
 

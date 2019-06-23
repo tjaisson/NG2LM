@@ -17,6 +17,7 @@ namespace Publi4Par
         public Fen()
         {
             InitializeComponent();
+            SaveLNK.Hide();
             Memo.AppendText("Pour commencer, veuillez déposer ici le fichier ExportXML « ResponsablesAvecAdresses » (zip ou xml)\r\n");
             step = 0;
         }
@@ -113,6 +114,7 @@ namespace Publi4Par
 
         private Dictionary<NP, MlnCsvReader.TMlnUser> MLNUsers;
         private Dictionary<NP, Stack<MlnCsvReader.TMlnUser>> MLNUsersCol;
+        private Dictionary<MlnCsvReader.TMlnUser, TRAAFile.TRAAUser> assoc;
 
         private void ReadMLN(string fn)
         {
@@ -171,12 +173,17 @@ namespace Publi4Par
             try
             {
                 Memo.AppendText("\r\nAnalyse...\r\n");
+                int i = 0;
+                assoc = new Dictionary<MlnCsvReader.TMlnUser, TRAAFile.TRAAUser>();
                 foreach(var kvp in MLNUsers)
                 {
-
+                    TRAAFile.TRAAUser u;
+                    if (RAAUsers.TryGetValue(kvp.Key, out u)){
+                        assoc.Add(kvp.Value, u);
+                        i++;
+                    }
                 }
-
-
+                Memo.AppendText(string.Format("Analisé : {0} adresses trouvées\r\n", i));
             }
             catch (Exception)
             {
