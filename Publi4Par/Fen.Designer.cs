@@ -40,6 +40,7 @@
             this.Memo.Location = new System.Drawing.Point(12, 12);
             this.Memo.Multiline = true;
             this.Memo.Name = "Memo";
+            this.Memo.ReadOnly = true;
             this.Memo.Size = new System.Drawing.Size(589, 342);
             this.Memo.TabIndex = 0;
             // 

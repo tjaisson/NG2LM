@@ -67,14 +67,6 @@ namespace Publi4Par
                         TImportedUser u = new TImportedUser();
                         u.Nom = fields[Nom_Pos].Trim();
                         u.Prenom = fields[Prenom_Pos].Trim();
-                        if (Date_Pos == -1)
-                        {
-                            u.DateNaiss = DateTime.MinValue;
-                        }
-                        else
-                        {
-                            u.DateNaissString = fields[Date_Pos].Trim();
-                        }
                         u.Groupe = fields[Group_Pos].Trim();
                         u.SimpGroupe = stringManip.simplifyGroupName(u.Groupe);
                         yield return u;

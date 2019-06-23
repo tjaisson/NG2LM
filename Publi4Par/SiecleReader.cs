@@ -151,11 +151,40 @@ namespace Publi4Par
     /// Classe qui permet la lecture du fichier xml responsablesAvecAdresses issu de siècle BEE
     /// (base élèves de l'établissement)
     /// </summary>
-    public class TRAAFile : IEnumerable<TRAAUser>
+    public class TRAAFile : IEnumerable<TRAAFile.TRAAUser>
     {
+        /// <summary>
+        /// Classe qui représente un utilisateur à importer
+        /// </summary>
+        public class TRAAUser
+        {
+            public class TAdresse
+            {
+                public string LIGNE2_ADRESSE;
+                public string LIGNE1_ADRESSE;
+                public string LIGNE3_ADRESSE;
+                public string LIGNE4_ADRESSE;
+                public string COMMUNE_ETRANGERE;
+                public string CODE_POSTAL;
+                public string CODE_PAYS;
+                public string CODE_COMMUNE_INSEE;
+                public string LL_PAYS;
+                public string CODE_DEPARTEMENT;
+                public string LIBELLE_POSTAL;
+
+            }
+
+            public string Nom;
+            public string Prenom;
+            public string LC_CIVILITE;
+            public string LL_CIVILITE;
+            public TAdresse adresse;
+            public HashSet<string> childsIds;
+        }
+
         private static class PN
         {
-            public const string SCONET_tag = "BEE_REPONSABLES";
+            public const string SCONET_tag = "BEE_RESPONSABLES";
 
             public const string PARAMETRES_tag = "PARAMETRES";
             public const string UAJ_tag = "UAJ";
@@ -193,9 +222,7 @@ namespace Publi4Par
             public const string LIBELLE_POSTAL_tag = "LIBELLE_POSTAL";
         }
 
-        string fileName;
-
-
+        readonly string fileName;
 
         public TRAAFile(string filename)
         {
@@ -246,7 +273,7 @@ namespace Publi4Par
             foreach (XmlNode a in adressesNode)
             {
                 TRAAUser.TAdresse adr = new TRAAUser.TAdresse();
-                var id = a.Attributes[PN.PERSONNE_ID_tag].Value;
+                var id = a.Attributes[PN.ADRESSE_ID_tag].Value;
                 adr.CODE_COMMUNE_INSEE = (t = a.SelectSingleNode(PN.CODE_COMMUNE_INSEE_tag)) == null ? "" : t.InnerText.Trim();
                 adr.CODE_DEPARTEMENT = (t = a.SelectSingleNode(PN.CODE_DEPARTEMENT_tag)) == null ? "" : t.InnerText.Trim();
                 adr.CODE_PAYS = (t = a.SelectSingleNode(PN.CODE_PAYS_tag)) == null ? "" : t.InnerText.Trim();
@@ -282,9 +309,13 @@ namespace Publi4Par
             {
                 string pi = i.Attributes[PN.PERSONNE_ID_tag].Value;
                 TRAAUser u = new TRAAUser();
-                if (adresses.TryGetValue(pi, out TRAAUser.TAdresse ad))
+
+                if ((t = i.SelectSingleNode(PN.ADRESSE_ID_tag)) != null)
                 {
-                    u.adresse = ad;
+                    if (adresses.TryGetValue(t.InnerText.Trim(), out TRAAUser.TAdresse ad))
+                    {
+                        u.adresse = ad;
+                    }
                 }
                 if (joined.TryGetValue(pi, out HashSet<string> l))
                 {

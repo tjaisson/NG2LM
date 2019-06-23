@@ -8,38 +8,39 @@ namespace Publi4Par
 {
     public class MlnCsvReader
     {
-        private class TInnerMlnUser : TUser
+        public class TMlnUser
         {
-            public TInnerMlnUser(string[] record, int[] positions)
+            public string login;
+            public string pw;
+            public string N;
+            public string P;
+            public string id;
+            public string prf;
+            public string classes;
+            public string childs;
+            public TMlnUser(string[] record, int[] positions)
             {
-                Ids1 = new TIds();
-                Ids1.id = record[positions[(int)fields.login]].Trim().ToLower();
-                string tmp = record[positions[(int)fields.pw]].Trim();
-                if (string.IsNullOrEmpty(tmp))
-                {
-                    Ids1.pw = null;
-                }
-                else
-                {
-                    Ids1.pw = tmp;
-                }
-                nom = record[positions[(int)fields.N]].Trim();
-                prenom = record[positions[(int)fields.P]].Trim();
-                UID2 = record[positions[(int)fields.id]].Trim();
+                login = record[positions[(int)fields.login]].Trim();
+                pw = record[positions[(int)fields.pw]].Trim();
+                N = record[positions[(int)fields.N]].Trim();
+                P = record[positions[(int)fields.P]].Trim();
+                prf = record[positions[(int)fields.prf]].Trim();
+                classes = record[positions[(int)fields.classes]].Trim();
+                childs = record[positions[(int)fields.childs]].Trim();
             }
         }
 
-        enum fields { login, pw, N, P, id, prf };
+        enum fields { login, pw, N, P, id, prf, classes, childs };
         //"Id";"Id Siecle";"Type";"Nom";"Prénom";"Login";"Code d'activation";"Fonction(s)";"Structure(s)";"Classe(s)";"Enfant(s)";"Parent(s)"
-        static readonly string[] Tags = { "Login", "Code d'activation", "Nom", "Prénom", "Id Siecle", "Type" };
-        const string elevPrf = "Elève";
+        static readonly string[] Tags = { "Login", "Code d'activation", "Nom", "Prénom", "Id Siecle", "Type", "Classe(s)", "Enfant(s)" };
+        const string parentPrf = "parent";
         private string FF;
         public MlnCsvReader(string F)
         {
             FF = F;
         }
 
-        public IEnumerable<TUser> Eleves()
+        public IEnumerable<TMlnUser> Parents()
         {
             int[] positions = new int[Tags.Length];
             for (int i = 0; i < positions.Length; i++) positions[i] = -1;
@@ -61,9 +62,9 @@ namespace Publi4Par
                     while (!TFP.EndOfData)
                     {
                         record = TFP.ReadFields();
-                        if (record[positions[(int)fields.prf]].Trim() == elevPrf)
+                        if (parentPrf.Equals(record[positions[(int)fields.prf]].Trim(), StringComparison.CurrentCultureIgnoreCase))
                         {
-                            yield return new TInnerMlnUser(record, positions);
+                            yield return new TMlnUser(record, positions);
                         }
                     }
                 }
@@ -78,20 +79,6 @@ namespace Publi4Par
         {
             public TEPSLine(string[] record, int[] positions)
             {
-                Ids1 = new TIds();
-                Ids1.id = record[positions[(int)fields.login]].Trim().ToLower();
-                string tmp = record[positions[(int)fields.pw]].Trim();
-                if (string.IsNullOrEmpty(tmp))
-                {
-                    Ids1.pw = null;
-                }
-                else
-                {
-                    Ids1.pw = tmp;
-                }
-                nom = record[positions[(int)fields.N]].Trim();
-                prenom = record[positions[(int)fields.P]].Trim();
-                UID2 = record[positions[(int)fields.id]].Trim();
             }
         }
 
@@ -126,10 +113,7 @@ namespace Publi4Par
                     while (!TFP.EndOfData)
                     {
                         record = TFP.ReadFields();
-                        if (record[positions[(int)fields.prf]].Trim() == elevPrf)
-                        {
-                            yield return new TEPSLine(record, positions);
-                        }
+                        yield return new TEPSLine(record, positions);
                     }
                 }
             }

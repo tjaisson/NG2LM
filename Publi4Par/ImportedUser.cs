@@ -57,34 +57,6 @@ namespace Publi4Par
         public bool hasLogin { get { return (Login != null) && (Login != ""); } }
     }
 
-    /// <summary>
-    /// Classe qui représente un utilisateur à importer
-    /// </summary>
-    public class TRAAUser
-    {
-        public class TAdresse
-        {
-            public string LIGNE2_ADRESSE;
-            public string LIGNE1_ADRESSE;
-            public string LIGNE3_ADRESSE;
-            public string LIGNE4_ADRESSE;
-            public string COMMUNE_ETRANGERE;
-            public string CODE_POSTAL;
-            public string CODE_PAYS;
-            public string CODE_COMMUNE_INSEE;
-            public string LL_PAYS;
-            public string CODE_DEPARTEMENT;
-            public string LIBELLE_POSTAL;
-
-        }
-
-        public string Nom;
-        public string Prenom;
-        public string LC_CIVILITE;
-        public string LL_CIVILITE;
-        public TAdresse adresse;
-        public HashSet<string> childsIds;
-    }
 
 
 }

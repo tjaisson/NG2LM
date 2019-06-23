@@ -6,6 +6,18 @@ using System.Web;
 
 namespace Publi4Par
 {
+    public struct NP
+    {
+        public string N, P;
+        public NP(string n, string p)
+        {
+            this.N = stringManip.simplifyName(n);
+            this.P = stringManip.simplifyName(p);
+        }
+    }
+
+
+
     /// <summary>
     /// Classe statique qui offre des méthodes pour manipuler les chaines de caractères
     /// Pour notamment tenir compte des caractères spéciaux.

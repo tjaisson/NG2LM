@@ -57,6 +57,7 @@
       <DependentUpon>Fen.cs</DependentUpon>
     </Compile>
     <Compile Include="ImportedUser.cs" />
+    <Compile Include="Indexation.cs" />
     <Compile Include="MlnCsvReader.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
