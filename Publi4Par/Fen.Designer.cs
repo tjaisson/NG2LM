@@ -31,6 +31,7 @@
             this.Memo = new System.Windows.Forms.TextBox();
             this.SaveLNK = new System.Windows.Forms.LinkLabel();
             this.saveDlg = new System.Windows.Forms.SaveFileDialog();
+            this.EchecLNK = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // Memo
@@ -55,6 +56,24 @@
             this.SaveLNK.TabIndex = 2;
             this.SaveLNK.TabStop = true;
             this.SaveLNK.Text = "Générer le fichier CSV";
+            this.SaveLNK.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.SaveLNK_LinkClicked);
+            // 
+            // saveDlg
+            // 
+            this.saveDlg.DefaultExt = "csv";
+            this.saveDlg.Filter = "Fichiers CSV|*.csv";
+            // 
+            // EchecLNK
+            // 
+            this.EchecLNK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.EchecLNK.AutoSize = true;
+            this.EchecLNK.Location = new System.Drawing.Point(192, 352);
+            this.EchecLNK.Name = "EchecLNK";
+            this.EchecLNK.Size = new System.Drawing.Size(255, 13);
+            this.EchecLNK.TabIndex = 3;
+            this.EchecLNK.TabStop = true;
+            this.EchecLNK.Text = "Générer un fichier avec les ambiguïtés et les échecs";
+            this.EchecLNK.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.EchecLNK_LinkClicked);
             // 
             // Fen
             // 
@@ -62,6 +81,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(501, 374);
+            this.Controls.Add(this.EchecLNK);
             this.Controls.Add(this.SaveLNK);
             this.Controls.Add(this.Memo);
             this.Name = "Fen";
@@ -78,6 +98,7 @@
         private System.Windows.Forms.TextBox Memo;
         private System.Windows.Forms.LinkLabel SaveLNK;
         private System.Windows.Forms.SaveFileDialog saveDlg;
+        private System.Windows.Forms.LinkLabel EchecLNK;
     }
 }
 

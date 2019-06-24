@@ -4,7 +4,7 @@ using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace jda_mvc.Classes.StreamEnum
+namespace Publi4Par
 {
     public delegate Stream StreamFactory();
 

@@ -182,7 +182,7 @@ namespace Publi4Par
             public HashSet<string> childsIds;
         }
 
-        private static class PN
+        public static class PN
         {
             public const string SCONET_tag = "BEE_RESPONSABLES";
 

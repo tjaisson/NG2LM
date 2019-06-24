@@ -21,6 +21,7 @@ namespace Publi4Par
             public TMlnUser(string[] record, int[] positions)
             {
                 login = record[positions[(int)fields.login]].Trim();
+                id = record[positions[(int)fields.id]].Trim();
                 pw = record[positions[(int)fields.pw]].Trim();
                 N = record[positions[(int)fields.N]].Trim();
                 P = record[positions[(int)fields.P]].Trim();
@@ -30,9 +31,9 @@ namespace Publi4Par
             }
         }
 
-        enum fields { login, pw, N, P, id, prf, classes, childs };
+        public enum fields { login, pw, N, P, id, prf, classes, childs };
         //"Id";"Id Siecle";"Type";"Nom";"Prénom";"Login";"Code d'activation";"Fonction(s)";"Structure(s)";"Classe(s)";"Enfant(s)";"Parent(s)"
-        static readonly string[] Tags = { "Login", "Code d'activation", "Nom", "Prénom", "Id Siecle", "Type", "Classe(s)", "Enfant(s)" };
+        public static readonly string[] Tags = { "Login", "Code d'activation", "Nom", "Prénom", "Id", "Type", "Classe(s)", "Enfant(s)" };
         const string parentPrf = "parent";
         private string FF;
         public MlnCsvReader(string F)
