@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lilie2LaboMep", "Lilie2Labo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Publi4Par", "Publi4Par\Publi4Par.csproj", "{27E95AEC-BBCF-49D6-9683-AE473468CD77}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EH2BEE", "EH2BEE\EH2BEE.csproj", "{9827FB65-4537-4776-AA90-78BBD1193F54}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{27E95AEC-BBCF-49D6-9683-AE473468CD77}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{27E95AEC-BBCF-49D6-9683-AE473468CD77}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{27E95AEC-BBCF-49D6-9683-AE473468CD77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9827FB65-4537-4776-AA90-78BBD1193F54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9827FB65-4537-4776-AA90-78BBD1193F54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9827FB65-4537-4776-AA90-78BBD1193F54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9827FB65-4537-4776-AA90-78BBD1193F54}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
