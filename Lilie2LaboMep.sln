@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.705
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.87
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lilie2LaboMep", "Lilie2LaboMep\Lilie2LaboMep.csproj", "{D3FB63EF-A009-437F-980B-B0D41C5B2D63}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Publi4Par", "Publi4Par\Publi4Par.csproj", "{27E95AEC-BBCF-49D6-9683-AE473468CD77}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EH2BEE", "EH2BEE\EH2BEE.csproj", "{9827FB65-4537-4776-AA90-78BBD1193F54}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "e-sidoc", "e-sidoc\e-sidoc.csproj", "{E4262709-2073-4633-8C8F-A69C99566897}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{9827FB65-4537-4776-AA90-78BBD1193F54}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9827FB65-4537-4776-AA90-78BBD1193F54}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9827FB65-4537-4776-AA90-78BBD1193F54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4262709-2073-4633-8C8F-A69C99566897}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4262709-2073-4633-8C8F-A69C99566897}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4262709-2073-4633-8C8F-A69C99566897}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4262709-2073-4633-8C8F-A69C99566897}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
